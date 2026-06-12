@@ -12,11 +12,11 @@ class Task:
         
 
         if task_id is not None:
-            self.id = task_id
+            self._id = task_id
             Task._id_counter = max(Task._id_counter, task_id)
         else:
             Task._id_counter += 1
-            self.id = Task._id_counter
+            self._id = Task._id_counter
 
         self.title = title
         self.project_title = project_title
@@ -36,12 +36,12 @@ class Task:
         icons = {"todo": "[ ]", "in_progress": "[~]", "done": "[x]"}
         icons = icons[self.status]
         assignee =self.assigned_to or "Unassigned"
-        return f"{icons} [#{self.id}] {self.title} ({self.status}) → {assignee}"
+        return f"{icons} [#{self._id}] {self.title} ({self.status}) → {assignee}"
     
 
     def to_dict(self):
         return{
-            "id": self.id,
+            "id": self._id,
             "title": self.title,
             "project_title": self.project_title,
             "status": self.status,

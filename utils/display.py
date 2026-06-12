@@ -50,7 +50,7 @@ def display_projects(projects: list):
 
     for project in projects:
         table.add_row(
-            str(project.id),
+            str(project._id),
             project.title,
             project.owner,
             project.due_date,
@@ -72,7 +72,7 @@ def display_tasks(tasks: list):
         status_color = {"todo": "red", "in_progress": "yellow", "done": "green"}
         color = status_color.get(task.status, "white")
         table.add_row(
-            str(task.id),
+            str(task._id),
             task.title,
             f"[{color}]{task.status}[/{color}]",
             task.assigned_to or "Unassigned",
