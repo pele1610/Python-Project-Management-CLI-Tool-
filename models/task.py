@@ -28,7 +28,7 @@ class Task:
         self.status = status
 
 
-    def compelete(self):
+    def complete(self):
         self.status = "done"
 
 
